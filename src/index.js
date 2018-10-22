@@ -22,11 +22,11 @@ class App extends React.Component {
     });
   }
 
-  removeLastItem() {
-    const newArr = this.state.passedFromChild.splice(-1);
-    this.setState({
-      passedFromChild: newArr
-    });
+  removeLastItem(e) {
+    var array = [...this.state.passedFromChild]; // make a separate copy of the array
+    var index = array.indexOf(e.target.value);
+    array.splice(index, 1);
+    this.setState({ passedFromChild: array });
   }
 
   clearData(e) {
